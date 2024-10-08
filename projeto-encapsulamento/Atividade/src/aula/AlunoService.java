@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class AlunoService {
-    private List<Aluno> ListaAlunos = new ArrayList<>();
+    private final List<Aluno> ListaAlunos = new ArrayList<>();
     private final Scanner leitor;
 
     public AlunoService(Scanner leitor){
@@ -67,15 +67,15 @@ public class AlunoService {
             System.out.print("Deseja continuar cadastrando alunos? [s/n]  ");
             resposta = leitor.nextLine().toLowerCase();
 
-            if (resposta.equals("s")){
-                return true;
-            } else if (resposta.equals("n")){
-                return false;
-            }
-            else {
-                System.out.print("Digite S para sim ou N para não");
+            switch (resposta) {
+                case "s" -> {
+                    return true;
+                }
+                case "n" -> {
+                    return false;
+                }
+                default -> System.out.print("Digite S para sim ou N para não");
             }
         }
     }
-
 }
