@@ -21,8 +21,13 @@ public class Aluno {
         return sobrenome;
     }
 
-    public void setCPF(String CPF){
-        this.CPF = CPF;
+    public void setCPF(String cpf){
+        if (cpf.length() == 11){
+            this.CPF = cpf;
+            System.out.println("CPF cadastrado com sucesso!");
+        } else {
+            System.out.println("CPF invalido, digite somente os 11 números");
+        }
     }
 
     public String getCPF(){
